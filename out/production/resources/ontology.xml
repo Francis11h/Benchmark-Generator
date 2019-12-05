@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns="http://www.owl-ontologies.com/mason.owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xml:base="http://www.owl-ontologies.com/mason.owl">
+    <owl:Ontology rdf:about="http://www.manunetwork.com/manuservice/v1#"/>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#Product">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Product</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#Electropolishing">
+    <rdfs:subClassOf rdf:resource="http://www.manunetwork.com/manuservice/v1#AnodicDissolving"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Electropolishing</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#AnodicDissolving">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AnodicDissolving</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#WaterTrimmingMachine">
+    <rdfs:subClassOf rdf:resource="http://www.manunetwork.com/manuservice/v1#ShearingMachineTool"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WaterTrimmingMachine</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#ShearingMachineTool">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ShearingMachineTool</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#FoldingMachine">
+    <rdfs:subClassOf rdf:resource="http://www.manunetwork.com/manuservice/v1#FormingMachine"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Folding Machine</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#FormingMachine">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Forming Machine</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#Assembling">
+        <rdfs:subClassOf rdf:resource="http://www.manunetwork.com/manuservice/v1#Operation"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Assemble</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#Triming">
+        <rdfs:subClassOf rdf:resource="http://www.manunetwork.com/manuservice/v1#Operation"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Triming</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#Testing">
+    <rdfs:subClassOf rdf:resource="http://www.manunetwork.com/manuservice/v1#Operation"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Testing</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#Operation">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operation</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.manunetwork.com/manuservice/v1#Factory">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Factory</rdfs:label>
+    </owl:Class>
+
+    <owl:ObjectProperty rdf:about="http://www.manunetwork.com/manuservice/v1#ProducedBy">
+    <rdfs:domain rdf:resource="http://www.manunetwork.com/manuservice/v1#FoldingMachine"/>
+    <rdfs:range rdf:resource="http://www.manunetwork.com/manuservice/v1#Factory"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">produced by</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.manunetwork.com/manuservice/v1#ProducedBy">
+    <rdfs:domain rdf:resource="http://www.manunetwork.com/manuservice/v1#WaterTrimmingMachine"/>
+    <rdfs:range rdf:resource="http://www.manunetwork.com/manuservice/v1#Factory"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">produced by</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.manunetwork.com/manuservice/v1#ProducedBy">
+    <rdfs:domain rdf:resource="http://www.manunetwork.com/manuservice/v1#Product"/>
+    <rdfs:range rdf:resource="http://www.manunetwork.com/manuservice/v1#Factory"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">produced by</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.manunetwork.com/manuservice/v1#hasAddress">
+    <rdfs:domain rdf:resource="http://www.manunetwork.com/manuservice/v1#Factory"/>
+    <rdfs:range rdf:resource="http://www.manunetwork.com/manuservice/v1#Address"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has address</rdfs:label>
+    </owl:ObjectProperty>
+
+
+    <owl:ObjectProperty rdf:about="http://www.manunetwork.com/manuservice/v1#hasFunctionality">
+    <rdfs:domain rdf:resource="http://www.manunetwork.com/manuservice/v1#WaterTrimmingMachine"/>
+    <rdfs:range rdf:resource="http://www.manunetwork.com/manuservice/v1#Triming"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has functionality</rdfs:label>
+    </owl:ObjectProperty>
+
+
+    <owl:ObjectProperty rdf:about="http://www.manunetwork.com/manuservice/v1#polishedBy">
+    <rdfs:domain rdf:resource="http://www.manunetwork.com/manuservice/v1#Product"/>
+    <rdfs:range rdf:resource="http://www.manunetwork.com/manuservice/v1#Electropolishing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">polished by</rdfs:label>
+    </owl:ObjectProperty>
+
+
+    <owl:DatatypeProperty rdf:about="http://www.manunetwork.com/manuservice/v1#addressRegion">
+    <rdfs:domain rdf:resource="http://www.manunetwork.com/manuservice/v1#Address"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:label xml:lang="en">address region</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.manunetwork.com/manuservice/v1#phoneNumber">
+    <rdfs:domain rdf:resource="http://www.manunetwork.com/manuservice/v1#Factory"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#String"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">phone number</rdfs:label>
+    </owl:DatatypeProperty>
+
+
+
+  
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->

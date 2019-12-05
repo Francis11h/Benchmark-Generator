@@ -14,13 +14,14 @@ import java.util.HashMap;
 public class stardogTest {
 
     public static void main(String[] args) throws Exception {
-        getKeys();
+//        getKeys();
 //        getMaterial();
 //        getDescription();
 //        getMachiningFunction();
 //        getQuantity();
 //        getRandomValues()
 //        getRandomValues("Description");
+            getRandomValues("Address");
     }
     static List<String> getKeys(){
 
@@ -342,15 +343,20 @@ public class stardogTest {
                         query.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ");
                         query.append("SELECT ?y where{ ?y rdfs:domain ").append(sb.toString());
                         query.append("}");
-//                        System.out.println(query.toString());
+
+                        System.out.println("Query : " + query.toString());
+
                         SelectQuery squery = connect.select(query.toString());
 
                         SelectQueryResult sresult = squery.execute();
                         List<String> value = new ArrayList<>();
                         while(sresult.hasNext()) {
-//                            System.out.print("VALUE -------------------");
-                            System.out.println(sresult.next().resource("y").get().toString());
-                          value.add(sresult.next().resource("y").get().toString());
+                            System.out.print("VALUE -------------------");
+//                            System.out.println(sresult.next().resource("y").get().toString());
+
+                            value.add(sresult.next().resource("y").get().toString());
+
+                            System.out.println(value.size());
                         }
                         System.out.println(value.size());
                         Random rand = new Random();
