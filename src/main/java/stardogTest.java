@@ -417,7 +417,6 @@ public class stardogTest {
 
                     SelectQueryResult result = squery.execute();
                     List<String> ans = new ArrayList<>();
-                    int i = 0;
                     while (result.hasNext()) {
                         System.out.print("-------------------");
                         ans.add(result.next().resource("s").get().toString());
