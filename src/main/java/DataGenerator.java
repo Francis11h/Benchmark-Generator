@@ -91,6 +91,30 @@ public class DataGenerator {
         return null;
     }
 
+    private static List<String> getSublass(String class, ConnectionPool connectionPool) {
+    	try (Connection connection = getConnection(connectionPool)) {
+    		try {
+    			connection.begin();
+                connection.add().io().format(RDFFormats.RDFXML).stream(new FileInputStream("src/main/resources/ManuServiceOntology.xml"));
+                connection.commit();
+                String query = "select ?o1 where {?o1 rdfs:subClassOf <http://www.manunetwork.com/manuservice/v1#" + class + " >}";
+                SelectQuery squery = connection.select(query);
+                List<String> res = new ArrayList<String>();
+                SelectQueryResult sresult = squery.execute();
+                while(sresult.hasNext()) {
+                	String subclass = sresult.next().get("o1").toString();
+                	res.add(subclass.split("#")[1]);
+                }
+                return res;
+    	    } catch (StardogException| IOException e) {
+                e.printStackTrace();
+            } finally {
+                releaseConnection(connectionPool, connection);
+                connectionPool.shutdown();
+            }
+        }
+    }
+
 
 
     public static void main(String[] args) {
