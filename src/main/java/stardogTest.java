@@ -14,13 +14,16 @@ import java.util.HashMap;
 public class stardogTest {
 
     public static void main(String[] args) throws Exception {
-        getKeys();
+//        getKeys();
 //        getMaterial();
 //        getDescription();
 //        getMachiningFunction();
 //        getQuantity();
 //        getRandomValues()
 //        getRandomValues("Description");
+//            getRandomValues("Address");
+        hasProperties("DrillingFeature");
+//        hasProperties("Address");
     }
     static List<String> getKeys(){
 
@@ -342,15 +345,20 @@ public class stardogTest {
                         query.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ");
                         query.append("SELECT ?y where{ ?y rdfs:domain ").append(sb.toString());
                         query.append("}");
-//                        System.out.println(query.toString());
+
+                        System.out.println("Query : " + query.toString());
+
                         SelectQuery squery = connect.select(query.toString());
 
                         SelectQueryResult sresult = squery.execute();
                         List<String> value = new ArrayList<>();
                         while(sresult.hasNext()) {
-//                            System.out.print("VALUE -------------------");
-                            System.out.println(sresult.next().resource("y").get().toString());
-                          value.add(sresult.next().resource("y").get().toString());
+                            System.out.print("VALUE -------------------");
+//                            System.out.println(sresult.next().resource("y").get().toString());
+
+                            value.add(sresult.next().resource("y").get().toString());
+
+                            System.out.println(value.size());
                         }
                         System.out.println(value.size());
                         Random rand = new Random();
@@ -372,6 +380,62 @@ public class stardogTest {
             }
         }finally {
 //            aStardog.shutdown();
+        }
+        return null;
+    }
+
+
+    public static List<String> hasProperties(String name){
+
+        try (AdminConnection connection = AdminConnectionConfiguration.toServer("http://localhost:5820").credentials("admin", "admin").connect()) {
+
+
+            connection.list().forEach(item -> System.out.println(item));
+            if (connection.list().contains("testDB")) {
+//                    System.out.println("Database already present, So we are droping it");
+                connection.drop("testDB");
+            }
+            connection.disk("testDB").create();
+            connection.close();
+
+            ConnectionConfiguration connectConfig = ConnectionConfiguration.to("testDB").server("http://localhost:5820").credentials("admin", "admin");
+
+            ConnectionPoolConfig connectPoolConfig = ConnectionPoolConfig.using(connectConfig).minPool(10).maxPool(200).expiration(300, TimeUnit.SECONDS).blockAtCapacity(900, TimeUnit.SECONDS);
+
+            ConnectionPool connectPool = connectPoolConfig.create();
+
+            try (Connection connect = connectPool.obtain()) {
+                try {
+                    connect.begin();
+                    connect.add().io().format(RDFFormats.RDFXML).stream(new FileInputStream("src/main/resources/ManuServiceOntology.xml"));
+                    connect.commit();
+
+
+                    SelectQuery squery = connect.select("select ?s where \n" +
+                                    "{  ?s rdfs:domain <http://www.manunetwork.com/manuservice/v1#" + name + ">}"
+                                    );
+
+                    SelectQueryResult result = squery.execute();
+                    List<String> ans = new ArrayList<>();
+                    int i = 0;
+                    while (result.hasNext()) {
+                        System.out.print("-------------------");
+                        ans.add(result.next().resource("s").get().toString());
+                        System.out.println(ans.size());
+                    }
+                    System.out.println(ans.size());
+                    return ans;
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        connectPool.release(connect);
+                    } catch (StardogException e) {
+                        e.printStackTrace();
+                    }
+                    connectPool.shutdown();
+                }
+            }
         }
         return null;
     }
