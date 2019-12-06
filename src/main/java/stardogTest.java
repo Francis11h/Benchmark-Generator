@@ -21,7 +21,9 @@ public class stardogTest {
 //        getQuantity();
 //        getRandomValues()
 //        getRandomValues("Description");
-            getRandomValues("Address");
+//            getRandomValues("Address");
+        hasProperties("DrillingFeature");
+//        hasProperties("Address");
     }
     static List<String> getKeys(){
 
@@ -378,6 +380,62 @@ public class stardogTest {
             }
         }finally {
 //            aStardog.shutdown();
+        }
+        return null;
+    }
+
+
+    public static List<String> hasProperties(String name){
+
+        try (AdminConnection connection = AdminConnectionConfiguration.toServer("http://localhost:5820").credentials("admin", "admin").connect()) {
+
+
+            connection.list().forEach(item -> System.out.println(item));
+            if (connection.list().contains("testDB")) {
+//                    System.out.println("Database already present, So we are droping it");
+                connection.drop("testDB");
+            }
+            connection.disk("testDB").create();
+            connection.close();
+
+            ConnectionConfiguration connectConfig = ConnectionConfiguration.to("testDB").server("http://localhost:5820").credentials("admin", "admin");
+
+            ConnectionPoolConfig connectPoolConfig = ConnectionPoolConfig.using(connectConfig).minPool(10).maxPool(200).expiration(300, TimeUnit.SECONDS).blockAtCapacity(900, TimeUnit.SECONDS);
+
+            ConnectionPool connectPool = connectPoolConfig.create();
+
+            try (Connection connect = connectPool.obtain()) {
+                try {
+                    connect.begin();
+                    connect.add().io().format(RDFFormats.RDFXML).stream(new FileInputStream("src/main/resources/ManuServiceOntology.xml"));
+                    connect.commit();
+
+
+                    SelectQuery squery = connect.select("select ?s where \n" +
+                                    "{  ?s rdfs:domain <http://www.manunetwork.com/manuservice/v1#" + name + ">}"
+                                    );
+
+                    SelectQueryResult result = squery.execute();
+                    List<String> ans = new ArrayList<>();
+                    int i = 0;
+                    while (result.hasNext()) {
+                        System.out.print("-------------------");
+                        ans.add(result.next().resource("s").get().toString());
+                        System.out.println(ans.size());
+                    }
+                    System.out.println(ans.size());
+                    return ans;
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        connectPool.release(connect);
+                    } catch (StardogException e) {
+                        e.printStackTrace();
+                    }
+                    connectPool.shutdown();
+                }
+            }
         }
         return null;
     }
