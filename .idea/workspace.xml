@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="90f57793-b7d0-4a2a-90be-d638f9906d8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stardogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stardogTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -23,7 +22,7 @@
     <session id="872536407">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.9" value="3" />
@@ -35,7 +34,7 @@
           <entry key="class" value="6" />
           <entry key="gradle" value="2" />
           <entry key="java" value="16" />
-          <entry key="xml" value="5" />
+          <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -43,7 +42,7 @@
           <entry key="CLASS" value="6" />
           <entry key="Groovy" value="2" />
           <entry key="JAVA" value="16" />
-          <entry key="XML" value="5" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -74,17 +73,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/StardogConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+            <state relative-caret-position="525">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/stardogTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="418" column="57" lean-forward="true" selection-start-line="418" selection-start-column="57" selection-end-line="418" selection-end-column="57" />
+            <state relative-caret-position="317">
+              <caret line="417" column="64" lean-forward="true" selection-start-line="417" selection-start-column="64" selection-end-line="417" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getKeys#0;class#stardogTest#0" />
@@ -93,6 +92,15 @@
                 <element signature="method#getDescription#0;class#stardogTest#0" />
                 <element signature="method#getMachiningFunction#0;class#stardogTest#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/ManuServiceOntology.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -108,10 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main</find>
-      <find>RDFFormats</find>
-      <find>serviceProvider</find>
-      <find>rdf:type</find>
       <find>BusinessEntity</find>
       <find>domain</find>
       <find>http://www.w3.org/2001/XMLSchema#string</find>
@@ -131,9 +135,17 @@
       <find>ThreadedThroughHole</find>
       <find>property</find>
       <find>CounterboreBlindHole</find>
-      <find>DrillingFeature</find>
       <find>ThreadedBlindHole</find>
       <find>Add</find>
+      <find>ServiceLog</find>
+      <find>dateTime</find>
+      <find>DrillingFeature</find>
+      <find>Personnel</find>
+      <find>SoftResource</find>
+      <find>45Chamfer</find>
+      <find>workpiece</find>
+      <find>ProductionModel</find>
+      <find>appliesWorkplan</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -527,6 +539,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
     <option name="y" value="23" />
     <option name="width" value="1409" />
     <option name="height" value="827" />
@@ -583,7 +596,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575665698640" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575675714486" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -654,15 +667,15 @@
       <workItem from="1575336290713" duration="109000" />
       <workItem from="1575414648329" duration="2029000" />
       <workItem from="1575579916276" duration="4099000" />
-      <workItem from="1575664806401" duration="340000" />
+      <workItem from="1575664806401" duration="5152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24655000" />
+    <option name="totallyTimeSpent" value="29467000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1409" height="827" extended-state="0" />
+    <frame x="1" y="23" width="1409" height="827" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19897586" />
@@ -785,13 +798,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/ontology.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ManuServiceOntology.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="342" column="29" selection-start-line="342" selection-start-column="26" selection-end-line="342" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -801,15 +807,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/StardogConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        <state relative-caret-position="525">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/stardogTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="418" column="57" lean-forward="true" selection-start-line="418" selection-start-column="57" selection-end-line="418" selection-end-column="57" />
+        <state relative-caret-position="317">
+          <caret line="417" column="64" lean-forward="true" selection-start-line="417" selection-start-column="64" selection-end-line="417" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getKeys#0;class#stardogTest#0" />
@@ -818,6 +824,13 @@
             <element signature="method#getDescription#0;class#stardogTest#0" />
             <element signature="method#getMachiningFunction#0;class#stardogTest#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ManuServiceOntology.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
         </state>
       </provider>
     </entry>
